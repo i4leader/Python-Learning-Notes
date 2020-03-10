@@ -1,4 +1,4 @@
-# My 13 days Learning notee for Python
+# My 13 days Learning notes for Python
 ## Main Content
 * [介绍](README.md)
 * Linux 操作相关
