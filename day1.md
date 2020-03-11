@@ -1,4 +1,4 @@
-# Linux 操作
+# Linux 操作-day1
 ***
 ## 1 Linux 目录
 * / 根目录
@@ -127,3 +127,10 @@ Linux 链接文件类似于Windows下的快捷方式。
 ![创建软链接](images/day1-2.jpg)
 可以ls查看软链接
 ![ls软链接](images/day1-3.jpg)
+知识点：
+* 修改硬连接会直接修改源文件
+* ls -l可以看到源文件copy数量
+
+~~~
+有兴趣一起学习的可以加我微信，大家一起交流。加我请备注“13天Python学习”
+![wechat-scan](images/mywechat.jpg)
