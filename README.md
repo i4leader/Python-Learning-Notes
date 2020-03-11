@@ -2,16 +2,16 @@
 ## 目录
 ### [介绍](README.md)
 ### Linux 操作相关
-* [Day1](day1.md)
-* [Day2](day2.md)
-* [Day3](day3.md)
+* [Day1](day01.md)
+* [Day2](day02.md)
+* [Day3](day03.md)
 ### Python 基础语法
-* [Day4](day4.md)
-* [Day5](day5.md)
-* [Day6](day6.md)
-* [Day7](day7.md)
-* [Day8](day8.md)
-* [Day9](day9.md)
+* [Day4](day04.md)
+* [Day5](day05.md)
+* [Day6](day06.md)
+* [Day7](day07.md)
+* [Day8](day08.md)
+* [Day9](day09.md)
 * [Day10](day10.md)
 ### Python 强化练习
 * [Day11](day11.md)
