@@ -222,7 +222,8 @@ Useradd命令的使用格式如下： useradd [参数] 新建用户账号
 |  :----  | :----  |
 | useradd -d /home/abc abc -m  | 创建abc用户，如果/home/abc目录不存在，就自动创建这个目录，同时用户属于abc组 |
 | useradd -d /home/a a -g test -m  | 创建一个用户名叫a，主目录在/home/a,如果主目录不存在，就自动创建主目录，同时用户属于test组 |
-| cat /etc/passwd | 查看系统当前用户名 |
+| cat /etc/passwd | 查看系统当前用户名 |  
+
 ![useradd](images/day2-4.jpeg)  
 
 ### 2.17 修改密码： passwd
