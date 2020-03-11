@@ -131,6 +131,6 @@ Linux 链接文件类似于Windows下的快捷方式。
 * 修改硬连接会直接修改源文件
 * ls -l可以看到源文件copy数量
 
-~~~
+***
 有兴趣一起学习的可以加我微信，大家一起交流。加我请备注“13天Python学习”
-![wechatscan](images/mywechat.jpeg)
+![mywechat](https://github.com/i4leader/python-learning-notes/blob/master/images/mywechat.jpeg)
