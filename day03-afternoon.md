@@ -48,7 +48,7 @@ python 和 python3的区别：
 #该行必须放在顶端，也不能加空格
 print("hello world!")
 ```
-写出来的程序保存为1.py；需要手动加执行权限之后才能使用./1.py来运行。   
+写出来的程序保存为1.py；需要手动运行命令chmod +x 1.py加执行权限之后才能使用./1.py来直接运行。   
 ![1py](images/day3-3.jpg)
 
 ## 1.3 注释
@@ -100,7 +100,7 @@ print(c)
 print(type(age))
 print(type(name))
 ```
-* 输出结果如下,可以看到通过type()可以自动识别变量类型：
+* 输出结果如下,可以看到通过type()可以自动识别变量类型：   
 ![type](images/day3-5.jpg)
 
 注意点：   
@@ -163,7 +163,7 @@ python一些具有特殊功能的标示符，这就是所谓的关键字；
 \t  表示tab键
 +   可以把变量加一起显示
 ```
-示例1：   
+#### 示例1：普通输出演示   
 ```
 root@k8s-node1:~# cat 6.py 
 #output
@@ -188,7 +188,7 @@ xiaotu
 联系方式:       181*********
 地址:南京*****
 ```
-示例2：   
+#### 示例2：换行显示以及加号的用法演示   
 ```
 root@k8s-node1:~# cat 6.py 
 #output
@@ -207,13 +207,54 @@ xiaotu
 xiaotunanjing
 root@k8s-node1:~# 
 ```
-示例3：   
+#### 示例3：格式化输出演示   
 ```
- 
-
+root@k8s-node1:~# chmod +x 7.py 
+root@k8s-node1:~# ./7.py 
+我今年20岁
+root@k8s-node1:~# cat 7.py 
+#!/usr/bin/python3
+#coding=utf-8
+age = 20
+print("我今年%d岁"%age)
 ```
+![outputdemo](images/day3-6.jpg)
+![outputdemo](images/day3-7.jpg)
 
+### 常用的格式符号 
+下面是完整的，它可以与%符号使用列表：   
+|  格式符号   | 转换  |
+|  ----  | ----  |
+| %c  | 字符 |
+| %s  | 通过str()字符串转换来格式化 |
+| %i  | 有符号十进制整数  |
+| %d  | 有符号十进制整数  |
+| %u  | 无符号十进制整数  |
+| %o  | 八进制整数  |
+| %x  | 十六进制整数(小写字母)  |
+| %X  | 十六进制整数(大写字母)  |
+| %e  | 索引符号(小写’e')  |
+| %E  | 索引符号(大写"E")  |
+| %f  | 浮点实数  |
+| %g  | %f和%e的简写  |
+| %G  | %f和%E的简写
 
+#### 示例4：两次print显示在一行中
+```
+root@k8s-node1:~# cat 6.py 
+#output
+#怎么显示在一行中?
+print("aaaaaaa")
+print("bbbbbbb")
+print("aaaaaaa",end="")
+print("bbbbbbb")
+root@k8s-node1:~# chmod +x 6.py 
+root@k8s-node1:~# python3 6.py 
+aaaaaaa
+bbbbbbb
+aaaaaaabbbbbbb
+```
+看了print的默认命令说明之后发现默认print的命令结尾是换行；手动可以修改end的默认行为。   
 
 ## 1.7 输入
 
@@ -221,22 +262,22 @@ root@k8s-node1:~#
 ## 1.8 运算符
 
 
-## 1.9  
+## 1.9  数据类型转换
 
 
-## 1.10 
+## 1.10 判断语句介绍
 
 
-## 1.11 
+## 1.11 if语句
 
 
-## 1.12 
+## 1.12 比较、关系运算符
 
 
-## 1.13
+## 1.13 作业
 
 
-## 1.14 
+## 1.14 附录-推荐的python电子书
 
 ***
 有兴趣一起学习的可以加我微信，大家一起交流。加我请备注“13天Python学习”

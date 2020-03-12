@@ -188,13 +188,13 @@ vim /etc/apt/sources.list
 https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu  
 ![ubuntusource](images/day3-1.jpg)
 在更改了软件源之后建议执行**apt-get update**来更新软件缓存。  
-更新软件包   
+#### 更新软件包   
 ```
 apt-get update                  // 更新安装源（Source）
 apt-get upgrade                 // 更新已安装的软件包
 apt-get dist-upgrade            // 更新已安装的软件包（识别并处理依赖关系的改变）
 ```
-安装软件包   
+#### 安装软件包   
 ```
 apt-get install PackageName                 // 普通安装
 apt-get install PackageName=VersionName     // 安装指定包的指定版本
@@ -205,7 +205,7 @@ apt-get -f install                          // 修复依赖关系
 
 apt-get source PackageName                  // 下载软件包的源码
 ```
-卸载软件包   
+#### 卸载软件包   
 ```
 apt-get remove PackageName              // 删除软件包, 保留配置文件
 
@@ -220,7 +220,7 @@ apt-get --purge autoremove PackageName  // 删除软件包, 删除配置文件,
 
 apt-get clean && apt-get autoclean      // 清除 已下载的软件包 和 旧软件包
 ```
-查询软件包   
+#### 查询软件包   
 ```
 dpkg -l                             // 列出已安装的所有软件包
 
