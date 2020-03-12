@@ -4,8 +4,9 @@
 ### Linux 操作相关
 * [Day1](day01.md)
 * [Day2](day02.md)
-* [Day3](day03.md)
+* [Day3](day03-morning.md)
 ### Python 基础语法
+* [Day3](day03-afternoon.md)
 * [Day4](day04.md)
 * [Day5](day05.md)
 * [Day6](day06.md)
