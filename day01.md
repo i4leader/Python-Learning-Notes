@@ -12,7 +12,7 @@
 * /opt: 给主机额外安装软件所摆放的目录。
 * /proc: 此目录的数据都在内存中，比如系统核心，外部设备，网络状态，由于数据都存放在内存中，所以不占用磁盘空间，比较重要的目录有/proc/cpuinfo、/proc/interrupts、/proc/dma、/procc/ioports、/proc/net/* 等。
 * /root: 系统管理员root的家目录。
-* /sbin、/usr/sbin、/usr/local/sbin: 放置系统管理员使用的可执行命令，如fdisk,shutdown,mount等。与/bin不同的是，这几个目录是给系统管理员root使用的命令，一般用户只能“查看”而不能设置和使用。
+* /sbin、/usr/sbin、/usr/local/sbin: 放置系统管理员使用的可执行命令，如fdisk,shutdown,mount等。与/bin不同的是，这几个目录是给系统管理员root使用的命令，一般用户只能"查看”而不能设置和使用。
 * /tmp: 一般用户或正在执行的程序临时存放文件的目录，任何人可以访问，重要数据不可放置在此目录下。
 * /srv: 服务启动后需要访问的数据目录。如WWW服务需要访问的网页数据存放在/srv/www内。
 * /usr: 应用程序存放目录，/usr/bin存放应用程序，/usr/share 存放共享数据, /usr/lib存放不能直接运行的，却是许多程序运行所必须的一些函数文件。/usr/local 存放软件升级包。/usr/share/doc:系统说明文件存放目录。/usr/share/man: 程序说明文件存放目录。
@@ -45,7 +45,7 @@ ls:
   * ls -l -h 显示文件单位为合适的单位
   * ls -alh 合并以上所有功能
   * ls *: 
-    * “*” 表示任意多个字符，也可以没有
+    * "*” 表示任意多个字符，也可以没有
     * "?" 表示一个字符，一定有一个，不能没有  
 cd:  
   * cd: Desktop 进入到Desktop这个文件夹
@@ -132,5 +132,5 @@ Linux 链接文件类似于Windows下的快捷方式。
 * ls -l可以看到源文件copy数量
 
 ***
-有兴趣一起学习的可以加我微信，大家一起交流。加我请备注“13天Python学习”
+有兴趣一起学习的可以加我微信，大家一起交流。加我请备注"13天Python学习”
 ![mywechat](https://github.com/i4leader/python-learning-notes/blob/master/images/mywechat.jpeg)

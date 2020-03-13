@@ -170,7 +170,7 @@ ctrl+r  反撤销
   * shift+zz保存并且推出编辑
   * !加shell命令
   * 分屏
-    * :sp newfile  上下分屏。则分出一个窗口编辑newfile文件。如果要从命令模式转换到编辑模式，可以键入命令a或者i；如果需要从文本模式返回，则按Esc键即可。在命令模式下输入“:”即可切换到末行模式，然后输入命令。
+    * :sp newfile  上下分屏。则分出一个窗口编辑newfile文件。如果要从命令模式转换到编辑模式，可以键入命令a或者i；如果需要从文本模式返回，则按Esc键即可。在命令模式下输入":”即可切换到末行模式，然后输入命令。
     * :vsp         左右分屏
     * ctrl+w+w     在多个窗口间切换
   
@@ -239,5 +239,5 @@ apt-get check                       // 检查是否有损坏的依赖
 
 
 ***
-有兴趣一起学习的可以加我微信，大家一起交流。加我请备注“13天Python学习”
+有兴趣一起学习的可以加我微信，大家一起交流。加我请备注"13天Python学习”
 ![mywechat](https://github.com/i4leader/python-learning-notes/blob/master/images/mywechat.jpeg)
