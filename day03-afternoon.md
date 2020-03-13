@@ -30,18 +30,18 @@
 
 
 ## 1.2 第一个Python程序
-1. 打开超级终端；
-2. 输入python3或者python；
-3. 运行print("Hello World")
-![helloworld](images/day3-2.jpg)
-发现除了print一些字符之外python还能执行一些数学计算。
+1. 打开超级终端；  
+2. 输入python3或者python；  
+3. 运行print("Hello World")  
+![helloworld](images/day3-2.jpg)   
+发现除了print一些字符之外python还能执行一些数学计算。  
 
-iPython是交互式的python。
+iPython是交互式的python。  
 
-python 和 python3的区别：
-* Python3 可以补全命令；
+python 和 python3的区别：  
+* Python3 可以补全命令；  
 
-* 在代码第一行写入执行时的Python解释器路径，编辑完后需要对此python文件添加‘x'权限
+* 在代码第一行写入执行时的Python解释器路径，编辑完后需要对此python文件添加‘x'权限  
 ```
 #!/usr/bin/python3
 #coding=utf-8  
@@ -292,7 +292,7 @@ root@k8s-node1:~# python3 b.py
 
 ### raw_input()函数和input()的区别
 代码解释一切：   
-![input](images/day3-9.jpg)
+![input](images/day3-9.jpg)   
 python2中的raw_input()其实就是python3中的input().   
 
 ## 1.8 运算符
