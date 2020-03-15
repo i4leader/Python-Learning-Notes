@@ -2,7 +2,7 @@
 ## Python 语法
 
 ### if 嵌套
-使用方法：   
+使用方法:   
 ```
 if xxxx:
    if yyyy:
@@ -13,9 +13,9 @@ elif ssss:
 else ssaa
 ```
 
-#### 应用：猜拳游戏
+#### 应用:猜拳游戏
 *效果，和电脑进行猜拳游戏
-代码：   
+代码:   
 ```
 #!/usr/bin/python3
 #coding:UTF-8
@@ -60,14 +60,14 @@ while i<10:
     print("第一遍%d"%i)
     i += 1
 ```   
-测试结果：   
+测试结果:   
 ![循环](images/day4-2.jpg)   
 
 ### 小总结   
 * 一般情况下，需要多次重复执行的代码，都可以用循环的方式来完成
 * 循环不是必须要使用的，但是为了提高代码的重复使用率，所有有经验的开发者都会采用循环
    
-使用While进行猜拳游戏，实例：   
+使用While进行猜拳游戏，实例:   
 ```
 #!/usr/bin/python3
 #coding:UTF-8
@@ -103,7 +103,7 @@ while True:
     else:
         print("Your input is invalid!")
 ```    
-测试结果：   
+测试结果:   
 ![while-test](images/day4-3.jpg)   
 
 #### 计算1到100的所有值总和
@@ -116,7 +116,7 @@ while i<100:
     print("第%d遍i=%d,sum=%d"%(i,i,sum))
     print("总和%d"%sum)
 ```
-演示结果：   
+演示结果:   
 ![demo-compute](images/day4-4.jpg)   
 
 #### 计算100以下所有3的倍数
@@ -127,7 +127,7 @@ while i<=100:
         print(i)
     i += 1
 ```   
-演示结果：   
+演示结果:   
 ![3的倍数](images/day4-5.jpg)   
 
 
