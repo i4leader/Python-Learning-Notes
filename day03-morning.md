@@ -147,7 +147,7 @@ ctrl+r  反撤销
   * v       选中光标经过的代码
   * V       选中光标所在的行
   * <<      选中部分整体向左偏移
-  * >>      选中部分整体向右偏移
+  * \>>      选中部分整体向右偏移
   * .       重复上一次指令
   * r       替换一个字符
   * R       替换光标后面的若干字符
@@ -199,43 +199,31 @@ apt-get dist-upgrade            // 更新已安装的软件包（识别并处理
 apt-get install PackageName                 // 普通安装
 apt-get install PackageName=VersionName     // 安装指定包的指定版本
 apt-get --reinstall install PackageName     // 重新安装
-
 apt-get build-dep PackageName               // 安装源码包所需要的编译环境
 apt-get -f install                          // 修复依赖关系
-
 apt-get source PackageName                  // 下载软件包的源码
 ```
 #### 卸载软件包   
 ```
 apt-get remove PackageName              // 删除软件包, 保留配置文件
-
 apt-get --purge remove PackageName      // 删除软件包, 同时删除配置文件
 apt-get purge PackageName               // 删除软件包, 同时删除配置文件
-
 apt-get autoremove PackageName          // 删除软件包, 同时删除为满足依赖
                                         // 而自动安装且不再使用的软件包
-
 apt-get --purge autoremove PackageName  // 删除软件包, 删除配置文件, 
                                         // 删除不再使用的依赖包
-
 apt-get clean && apt-get autoclean      // 清除 已下载的软件包 和 旧软件包
 ```
 #### 查询软件包   
 ```
 dpkg -l                             // 列出已安装的所有软件包
-
 apt-cache search PackageName        // 搜索软件包
 apt-cache show PackageName          // 获取软件包的相关信息, 如说明、大小、版本等
-
 apt-cache depends PackageName       // 查看该软件包需要哪些依赖包
 apt-cache rdepends PackageName      // 查看该软件包被哪些包依赖
-
 apt-get check                       // 检查是否有损坏的依赖
 
 ```
-
-
-
 
 
 ***
