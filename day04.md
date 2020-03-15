@@ -130,7 +130,156 @@ while i<=100:
 演示结果:   
 ![3的倍数](images/day4-5.jpg)   
 
+#### 计算1-100之间偶数的和
+```
+i = 0
+sum = 0
+while i<=100:
+    if i%2==0:
+        sum = sum + i
+    i += 1
+print(sum)
+```   
+显示结果：   
+![sum](images/day4-6.jpg)
 
+### while 循环嵌套
+* 类似if的嵌套，while嵌套就是：while里面还有while
+#### while嵌套的格式
+```
+while 条件1：
+
+    条件1满足时，做的事情1
+    条件1满足时，做的事情2
+    条件1满足时，做的事情3
+    ...(省略)...
+
+    while 条件2：
+        条件2满足时，做的事情1
+        条件2满足时，做的事情2
+        条件2满足时，做的事情3
+        ...(省略)...
+```
+
+#### 打印*到如下的结果
+```
+*
+**
+***
+****
+*****
+```
+示例代码：   
+```
+i = 1
+while i<=5:
+    #方法1
+    #print("*"*i)
+
+    #方法2
+    #控制一行中的个数
+    j = 1
+    while j<=i:
+        print("*",end='')
+        j+=1
+    print("")
+    i+=1
+```
+演示结果：   
+![print*](images/day4-7.jpg)   
+
+#### 打印*到如下的结果
+```
+*
+* *
+* * *
+* * * *
+* * * * *
+* * * *
+* * *
+* *
+*
+```   
+示例代码：（这道题花了我三小时，不过做出来我也很开心）   
+```
+i=1
+while i<=5:
+    j = 1
+    while j<=i:
+        print("* ",end='')
+        j+=1
+    print("")
+    i+=1
+    if i==6:
+        k = 4
+        while k>=0:
+            s = 1
+            while s<=k:
+                print("* ",end='')
+                s+=1
+            print("")
+            k-=1
+```   
+
+#### 99 乘法表
+**代码示例：**   
+```
+x=1
+while x<=9:
+    y = 1
+    while y<=x:
+        z=x*y
+        print("%d*%d=%d "%(y,x,z),end='')
+        y+=1
+    print("")
+    x+=1
+```
+**演示结果：**  
+![99chengfa](images/day4-8.jpg)   
+
+
+### break和continue
+1. break
+#### for 循环
+* 普通的循环示例如下：   
+
+```
+name = "jack"
+
+for x in name:
+    print('-----')
+    print(x)
+```
+运行结果：   
+![forexample01](images/day4-9.jpg)   
+
+* 最简单的break示例   
+   
+```
+i=0
+while i<10:
+    if i==5:
+        break
+    print("%d"%i)
+    i+=1
+```
+运行结果：   
+![forexample01](images/day4-10.jpg)   
+
+#### continue 示例
+* 最简单的continue
+    
+```
+i=0
+while i<10:
+    print("-"*30)
+    i+=1
+    if i==5:
+        continue
+    print("i=%d"%i)
+```   
+运行结果：   
+![forexample01](images/day4-11.jpg)   
 
 ***
 有兴趣一起学习的可以加我微信，大家一起交流。加我请备注"13天Python学习”
