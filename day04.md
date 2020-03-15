@@ -281,6 +281,24 @@ while i<10:
 运行结果：   
 ![forexample01](images/day4-11.jpg)   
 
+### for 循环
+```
+for 临时变量 in 列表或者字符串等:
+    循环满足条件时执行的代码
+else:
+    循环不满足条件时的代码
+```   
+演示代码：   
+```
+name = 'i4leader'
+
+for x in name:
+    print(x)
+```   
+运行结果：  
+![forexample01](images/day4-12.jpg)   
+
+
 ***
 有兴趣一起学习的可以加我微信，大家一起交流。加我请备注"13天Python学习”
 ![mywechat](https://github.com/i4leader/python-learning-notes/blob/master/images/mywechat.jpeg)
