@@ -60,8 +60,121 @@ print(name[4])
 **输出结果：**
 ![xiabiao](images/day5-1.jpg)   
 
+### 2. 切片
+切片是指对操作的对象截取其中一部分的操作。**字符串、列表、元组**都支持切片操作。
+
+#### 切片的语法:[起始位置:结束位置:步长]   
+**注意：选取的区间属于左闭右开型，即从“起始”位开始，到“结束”位的前一位结束(不包含结束位本身)。**    
+我们已字符串为例讲解。   
+如果取出一部分，则可以在中括号[]中，使用:
+```
+name = ‘abcdef'
+print(name[0:3])  #取下标0-2字符
+```   
+运行结果：   
+![qiepian](images/day5-2.jpg)   
+* **还可以写成name[0:]或者name[3:]表示从第0位或者第三位一直到最后**
+* **步长的意思是每隔几个字符取一位字符**
+* **步长为-1的意思是，把字符串逆序进行输出**
+* **name[-1]为最后一位字符，-2表示倒数第二位**
+
 
 ### 字符串常见操作
+如有字符串 mystr ='hello world itcast and itcast'，以下是常见的操作.   
+
+字符串的操作方法列表如下： 
+```
+mystr.capitalize   mystr.endswith     mystr.index        mystr.isidentifier mystr.istitle      mystr.lstrip       mystr.rindex       mystr.split        mystr.title        
+mystr.casefold     mystr.expandtabs   mystr.isalnum      mystr.islower      mystr.isupper      mystr.maketrans    mystr.rjust        mystr.splitlines   mystr.translate    
+mystr.center       mystr.find         mystr.isalpha      mystr.isnumeric    mystr.join         mystr.partition    mystr.rpartition   mystr.startswith   mystr.upper        
+mystr.count        mystr.format       mystr.isdecimal    mystr.isprintable  mystr.ljust        mystr.replace      mystr.rsplit       mystr.strip        mystr.zfill        
+mystr.encode       mystr.format_map   mystr.isdigit      mystr.isspace      mystr.lower        mystr.rfind        mystr.rstrip       mystr.swapcase       
+```
+
+##### (1)find
+检测str是否包含在mystr中，如果是返回开始的索引值，否则返回-1   
+```
+mystr.find(str,start=0,end=len(mystr))
+```   
+![find](images/day5-3.jpg)  
+##### (2)index   
+跟find()方法一样，只不过如果str不在mystr中会报一个异常。  
+```
+mystr.index(str,start=0,end=len(mystr))
+```   
+##### (3)rfind,rindex
+表示从右边开始找。   
+
+##### (4)count
+返回str在start和end之间在mystr里面出现的次数   
+```
+mystr.count(str,strat=0,end=len(mystr))
+```
+
+##### (5)replace
+把mystr 中的str1 替换成str2，如果count指定，则替换不超过count次。
+```
+mystr.replace(str1,str2,mystr.ccount(str1))
+```   
+![replace](images/day5-4.jpg)   
+
+##### (6) split
+以str为分隔符切片mystr,如果maxsplit有指定值，则仅分隔maxsplit个子字符串   
+```
+mystr.split(str="",2)
+```   
+![split](images/day5-5.jpg)   
+
+##### (7) capitalize
+把字符串的第一个字符大写   
+```
+mystr.capitalize()
+```   
+![capitalize](images/day5-6.jpg)   
+
+##### (8) title
+把字符串的每个单词首字母大写   
+```
+In [40]: print(mystr)
+ha ha lol lol ha ha lol
+
+In [41]: mystr.title()
+Out[41]: 'Ha Ha Lol Lol Ha Ha Lol'
+```
+##### (9) startswith
+检查字符串是否是以obj开头，是则返回True，否则返回False   
+```
+mystr.startswith(obj)
+```   
+示例：   
+```
+In [40]: print(mystr)
+ha ha lol lol ha ha lol
+
+In [42]: mystr.startswith('ha')
+Out[42]: True
+
+In [43]: mystr.startswith('Ha')
+Out[43]: False
+```   
+
+##### (10) endswith
+检查字符串是否以obj结束，结果是返回True，否则返回False.   
+```
+mystr.endswith(obj)
+```   
+示例：   
+```
+
+In [40]: print(mystr)
+ha ha lol lol ha ha lol
+
+In [45]: mystr.endswith('lol')
+Out[45]: True
+
+In [46]: mystr.endswith('ha')
+Out[46]: False
+```   
 
 
 ### 列表介绍
