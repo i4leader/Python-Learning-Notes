@@ -176,6 +176,250 @@ In [46]: mystr.endswith('ha')
 Out[46]: False
 ```   
 
+##### (11) lower
+转换mystr中所有大写字符为小写   
+```
+mystr.lower()
+```
+示例：   
+```
+In [55]: mystr
+Out[55]: 'Ha ha lol lol ha ha lol'
+
+In [56]: mystr = mystr.lower()
+
+In [57]: mystr
+Out[57]: 'ha ha lol lol ha ha lol'
+```   
+
+##### (12) upper
+转换mystr中的小写字母为大写   
+```
+mystr.upper()
+```
+示例：   
+```
+In [59]: mystr.upper()
+Out[59]: 'HA HA LOL LOL HA HA LOL'
+```   
+
+##### (13) ljust
+返回一个原字符串左对齐，并使用空格填充至长度width的新字符串。  
+```
+mystr.ljust(width)
+```
+示例代码：   
+```
+In [71]: mystr = 'hello'
+
+In [72]: mystr.ljust(10)
+Out[72]: 'hello     '
+```   
+
+##### (14) rjust
+返回一个原字符串右对齐，并使用空格填充至长度width的新字符串.   
+```
+mystr.rjust(width)
+```   
+示例代码：   
+```
+In [71]: mystr = 'hello'
+
+In [72]: mystr.ljust(10)
+Out[72]: 'hello     '
+
+In [73]: mystr.rjust(10)
+Out[73]: '     hello'
+```   
+
+
+##### (15) center
+返回一个原字符串居中，并使用空格填充至长度width的新字符串。   
+```
+mystr.center(width)
+```   
+示例代码：   
+```
+In [74]: mystr = 'my world is beatiful'
+
+In [75]: mystr.center(50)
+Out[75]: '               my world is beatiful               '
+```   
+
+##### (16) lstrip
+删除mystr左边的空白字符   
+```
+mystr.lstrip()
+```   
+示例代码：   
+```
+In [77]: mystr
+Out[77]: '               my world is beatiful               '
+
+In [78]: mystr.lstrip()
+Out[78]: 'my world is beatiful               '
+```   
+
+##### (17) rstrip
+```
+mystr.rstrip()
+```   
+示例代码：   
+```
+In [77]: mystr
+Out[77]: '               my world is beatiful               '
+
+In [78]: mystr.lstrip()
+Out[78]: 'my world is beatiful               '
+
+In [79]: mystr.rstrip()
+Out[79]: '               my world is beatiful'
+```   
+
+##### (18) strip
+删除mystr字符串两端的空白字符   
+```
+In [80]: mystr.strip()
+Out[80]: 'my world is beatiful'
+```
+
+##### (19)  rfind
+类似于 find()函数，不过是从右边开始查找   
+```
+mystr.rfind(str,start=0,end=len(mystr))
+```   
+示例代码：   
+```
+In [83]: mystr
+Out[83]: '               my world is beatiful               '
+
+In [84]: mystr.rfind('my')
+Out[84]: 15
+```   
+
+##### (20)rindex 
+就是index函数从右边开始查找   
+```
+In [83]: mystr
+Out[83]: '               my world is beatiful               '
+
+In [85]: mystr.rindex('my')
+Out[85]: 15
+```  
+##### (21) partition
+把mystr以str分割成三部分，str前，str和str后   
+```
+mystr.partition(str)
+```   
+示例代码：   
+```
+In [86]: mystr
+Out[86]: '               my world is beatiful               '
+
+In [87]: mystr.partition('world')
+Out[87]: ('               my ', 'world', ' is beatiful               ')
+```   
+
+##### (22) rpartition
+类似于partition()函数，不过是从右边开始   
+```
+mystr.rpartition(str)
+```   
+示例代码： 
+```
+In [88]: mystr.rpartition('world')
+Out[88]: ('               my ', 'world', ' is beatiful               ')
+```   
+##### (23) splitlines
+按照行分隔，返回一行包含各行作为元素的列表   
+```
+mystr.splitlines()
+```   
+示例代码：    
+```
+In [95]: mystr = 'hello\njack'
+
+In [96]: print(mystr)
+hello
+jack
+
+In [97]: mystr.splitlines()
+Out[97]: ['hello', 'jack']
+```   
+##### (24) isalpha,isalnum
+isalpha--如果mystr所有的字符都是字母，则返回True，否则返回False   
+isalnum--如果mystr所有的字符都输数字或字母，则返回True，否则返回False   
+```
+mystr.isalpha()
+
+mystr.isalnum()
+
+```   
+代码示例：   
+```
+In [98]: mystr = 'abcdefg'
+
+In [99]: phoneNumber = '18155551111'
+
+In [100]: mystr.isalpha()
+Out[100]: True
+
+In [101]: mystr.isalnum()
+Out[101]: True
+
+In [102]: phoneNumber.isalpha()
+Out[102]: False
+
+In [103]: phoneNumber.isalnum()
+Out[103]: True
+```   
+##### (25) isdigit
+如果mystr只包含数字则返回True否则返回False.
+```
+mystr.isdigit()
+```   
+示例代码：   
+```
+In [105]: phoneNumber.isdigit()
+Out[105]: True
+
+In [106]: mystr.isdigit()
+Out[106]: False
+```   
+
+#####  (26) isspace
+如果mystr中只包含空格，则返回True，否则返回False.   
+```
+mystr.isspace()
+```   
+示例代码：   
+```
+In [108]: strA = '   '
+
+In [109]: strA.isspace()
+Out[109]: True
+```   
+
+##### (27) join
+mystr 中每个字符后面插入str,构造出一个新的字符串   
+```
+mystr.join(str)
+```   
+代码示例：   
+```
+In [111]: strA = ' '
+
+In [112]: li = ["my","name","is","jack"]
+
+In [113]: strA.join(li)
+Out[113]: 'my name is jack'
+
+In [114]: strA = '_'
+
+In [115]: strA.join(li)
+Out[115]: 'my_name_is_jack'
+```   
+
 
 ### 列表介绍
 
