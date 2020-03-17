@@ -422,12 +422,274 @@ Out[115]: 'my_name_is_jack'
 
 
 ### 列表介绍
+前面学习了字符串可以用来存储一串信息，那么如果存储更多的数据，譬如公司所有员工名字，我们用什么方式呢；定义10000个变量，每个变量存放一个学生的姓名？那么有更好的办法么？   
+回答： 列表。   
+
+#### <1>列表的格式
+变量A的类型为列表   
+```
+namesList = ['xiaoming','hanmeimei','lilei']
+```   
+比C语言的数组强大的地方在于列表中的元素可以是不同类型的。   
+```
+namesList = [11,'aa','hello']
+```   
+
+#### <2>打印列表
+代码示例:   
+```
+namesList = ['xiaoming','hanmeimei','lilei']
+print(namesList[0])
+print(namesList[1])
+print(namesList[2])
+```   
+结果：   
+```
+In [1]: namesList = ['xiaoming','hanmeimei','lilei']
+
+In [2]: namesList[0]
+Out[2]: 'xiaoming'
+
+In [3]: namesList[2]
+Out[3]: 'lilei'
+
+In [4]: namesList[1]
+Out[4]: 'hanmeimei'
+```   
 
 
 ### 列表的循环遍历
+循环遍历：   
+```
+#方式1 for循环
+In [5]: namesList
+Out[5]: ['xiaoming', 'hanmeimei', 'lilei']
 
+In [6]: for temp in namesList:
+   ...:     print(temp)
+   ...:     
+xiaoming
+hanmeimei
+lilei
+```   
+
+```   
+#方式2 while循环
+In [8]: i = 0
+
+In [9]: while i<len(namesList):
+   ...:     print(namesList[i])
+   ...:     i+=1
+   ...:     
+xiaoming
+hanmeimei
+lilei
+```   
+
+**小测试: 定义一个名字列表，并查找列表中的名字是否存在**   
+```
+#coding=utf-8
+
+#1.定义一个列表,里面有一些名字
+names = ['jack','harris','sunny','guang']
+
+#2.获取一个要查找的名字
+insertName = input('请输入您的名字:')
+
+#3.判断是否存在,并显示相应的提示
+findFlag = 0
+for name in names:
+    if name==insertName:
+        findFlag = 1
+        # 如果在前面已经找到了需要的名字,那么就结束循环,因为剩下的不会再进行判断,所以提升了程序的运行效率
+        break
+if findFlag == 1:
+    print('找到了')
+else:
+    print('没找到')
+```   
+测试结果：   
+```
+root@k8s-node1:/home/k8s/Documents/day5-string-list-dict# python3 02.py 
+请输入您的名字:jacck
+没找到
+root@k8s-node1:/home/k8s/Documents/day5-string-list-dict# python3 02.py 
+请输入您的名字:jack
+找到了
+root@k8s-node1:/home/k8s/Documents/day5-string-list-dict# python3 02.py 
+请输入您的名字:sunny
+找到了
+```   
 
 ### 列表的常见操作
+列表中存放的数据是可以进行修改的，比如“增”，“删”，“改”   
+#### <1> 添加元素("增"append,extend,insert)
+##### 增 append
+通过append可以向列表添加元素   
+代码演示：   
+```
+#定义变量,默认有三个元素
+
+ABC = ['apple','banana','orange']
+
+print("-----添加之前,列表ABC的数据-----")
+for tempName in ABC:
+    print(tempName)
+
+#提示,并添加元素
+temp = input('请输入要添加的水果名:')
+ABC.append(temp)
+
+print("-----添加之后,列表ABC的数据-----")
+for tempName in ABC:
+    print(tempName)
+```
+输出结果：   
+```
+#python3 3-append.py 
+-----添加之前,列表ABC的数据-----
+apple
+banana
+orange
+请输入要添加的水果名:watermelon
+-----添加之后,列表ABC的数据-----
+apple
+banana
+orange
+watermelon
+```   
+
+##### extend
+通过extend 可以将另一个集合中的元素逐一添加到列表中   
+代码示例   
+```
+In [1]: a = [1,2]
+In [2]: b = [3,4]
+In [3]: a.append(b)
+In [4]: a
+Out[4]: [1, 2, [3, 4]]
+In [5]: a.extend(b)
+In [6]: a
+Out[6]: [1, 2, [3, 4], 3, 4]
+```   
+
+##### insert
+insert(index,object)在指定位置index前插入元素object   
+```
+In [7]: c = [3,4,5,6]
+In [8]: c.insert(2,7)
+In [9]: c
+Out[9]: [3, 4, 7, 5, 6]
+```   
+#### <2> 修改元素
+修改元素的时候，要通过下标来确定要修改的是哪个元素，然后才能进行修改   
+演示：   
+```
+In [1]: A = ['xiaozhu','xiaotu','xiaoming']
+
+In [2]: A[0]
+Out[2]: 'xiaozhu'
+
+In [3]: A[1]
+Out[3]: 'xiaotu'
+
+In [4]: A[2]
+Out[4]: 'xiaoming'
+
+In [5]: A[1] = 'xiaojin'
+
+In [6]: A
+Out[6]: ['xiaozhu', 'xiaojin', 'xiaoming'] 
+```   
+
+#### <3> 查找元素("查"in,not in,index,count)
+所谓的查找，就是看看指定的元素是否存在   
+
+**in,not in**   
+python中查找的常用方法为：   
+* in（存在），如果存在那么结果为true，否则为false
+* not in（不存在），如果不存在那么结果为true，否则false
+
+代码示例   
+```
+In [15]: names
+Out[15]: ['a', 'b', 'c']
+
+In [16]: inputName
+Out[16]: 'a'
+
+In [17]: inputName in names
+Out[17]: True
+```
+
+**index,count**   
+   
+```
+In [18]: names.count('a')
+Out[18]: 1
+
+In [19]: names.count('b')
+Out[19]: 1
+
+In [20]: names.count('d')
+Out[20]: 0
+
+In [21]: names.index('d')
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-21-25c0ad3a4bb0> in <module>()
+----> 1 names.index('d')
+
+In [22]: names.index('a')
+Out[22]: 0
+
+In [23]: names.index('b')
+Out[23]: 1
+
+In [24]: names.index('c')
+Out[24]: 2
+```   
+
+**index如果不存在会报错，count如果不存在会返回false。**   
+
+#### <4> 删除元素("删"del,pop,remove)
+类比现实生活中，如果某位同学调班了，那么就应该把这个调走后的学生的姓名删除掉；在开发中经常会用到删除这种功能。   
+
+列表元素的常用删除方法有：   
+* del: 根据下标进行删除
+* pop：删除最后一个元素
+* remove： 根据元素的值进行删除
+
+代码示例：   
+```
+In [27]: names
+Out[27]: ['b', 'c']
+
+In [29]: names.pop()
+Out[29]: 'c'
+
+In [30]: names
+Out[30]: ['b']
+
+In [34]: names
+Out[34]: ['a', 'b', 'cc']
+
+In [35]: names.remove('cc')
+
+In [36]: names
+Out[36]: ['a', 'b']
+
+In [37]: names.pop()
+Out[37]: 'b'
+
+In [38]: names
+Out[38]: ['a']
+```   
+
+**练习：**   
+```
+
+```
 
 
 ### 列表的嵌套
