@@ -686,32 +686,523 @@ In [38]: names
 Out[38]: ['a']
 ```   
 
-**练习：**   
-```
+**练习：写一个名册系统，可以执行增删改查以及遍历操作**   
 
 ```
+#coding=utf-8
+
+#定义一个列表,用来存储所有的名字
+names = []
+
+while True:
+    #1. 打印提示
+    print("="*30)
+    print("            欢迎使用xxxx系统 V6.8")
+    print(" 1: 添加新名字")
+    print(" 2: 删除一个名字")
+    print(" 3: 修改一个名字")
+    print(" 4: 查询一个名字")
+    print(" 5: 遍历所有的名字")
+    print(" 0: 退出系统")
+    print("="*30)
+
+    #2. 获取要操作的数字
+    key = input('请输入您要操作的选项:')
+
+
+    #3. 根据选择,来做相应的事情
+    if key == "1":
+        #3.1 提示用户输入一个新名字
+        insertName = input("请输入要添加的名字:")
+        #3.2 把用户输入的名字添加到列表中
+        names.append(insertName)
+    elif key == "2":
+        #3.3 提示用户输入要删除的名字
+        insertName = input("请输入要删除的名字:")
+        #3.4 删除输入的名字
+        names.remove(insertName)
+    elif key == "3":
+        #3.5 修改一个名字
+        insertName = input("请输需要修改的名字:")
+        if insertName in names:
+        # 3.6 修改名字 
+            i = names.index(insertName)
+            modifyName = input("请输入新的名字")
+            names[i] = modifyName
+            # 3.7 如果输入的名字找到了则直接修改并退出到主程序
+            continue
+        else:
+            print("名字不在数据库中,请重新输入.")
+
+    elif key == "4":
+        insertName = input("请输入要查询的名字:")
+        if insertName in names:
+            print("该名字存在")
+            continue
+    elif key == "5":
+        print(names)
+    elif key == "0":
+        break
+
+```   
+
+#### <5> 排序 (sort,reverse)
+sort方法是将list按特定顺序重新排列，默认为由小到大，参数reverse=True 可改为倒序，由大到小。   
+reserve方法是将list逆置。   
+```
+In [1]: a = [4,5,3,7,2,0,1,6]
+
+In [2]: a.reverse()
+
+In [3]: a
+Out[3]: [6, 1, 0, 2, 7, 3, 5, 4]
+
+In [4]: a.sort()
+
+In [5]: a
+Out[5]: [0, 1, 2, 3, 4, 5, 6, 7]
+
+In [6]: a.sort(reverse=True)
+
+In [7]: a
+Out[7]: [7, 6, 5, 4, 3, 2, 1, 0]
+
+```   
+
 
 
 ### 列表的嵌套
+#### 1. 列表嵌套
+类似while循环的嵌套，列表也是支持嵌套的。   
+一个列表中的元素又是一个列表，那么这就是列表的嵌套。   
+```
+schoolNames = [['北京大学','清华大学'],['南开大学','天津大学'],['山东大学','中国海洋大学']]
+```   
+
+#### 2.应用
+一个学校，有三个办公室，现在有8位老师等待工位的分配，请编写程序，完成随机的分配   
+代码示例：   
+```
+#coding=utf-8
+
+import random
+
+#1. 定义一个列表,嵌套的列表
+rooms = [[],[],[]]
+
+#2. 有一个列表,保存了8名老师的名字
+teachers = ['A','B','C','D','E','F','G','H']
+
+#3. 随机把8名老师的名字添加到第一个列表中
+for name in teachers:
+    randomNum = random.randint(0,2)
+    rooms[randomNum].append(name)
+i = 1
+for room in rooms:
+    print("办公室%d里面的老师姓名是:"%i)
+    for name in room:
+        print(name,end=" ")
+    print("")
+    i += 1
+```   
+演示结果：   
+![office](images/day5-7.jpg)   
 
 
 ### 元组
+Python 的元组与列表类似，不同之处在于**元组的元素不能修改**。元组使用小括号，列表使用方括号。   
+```
+In [1]: aTuple = ('a',333,3.14159265354)
 
+In [2]: aTuple
+Out[2]: ('a', 333, 3.14159265354)
+```   
+
+#### (1) 访问元组
+```
+In [2]: aTuple
+Out[2]: ('a', 333, 3.14159265354)
+
+In [3]: aTuple[0]
+Out[3]: 'a'
+
+In [4]: aTuple[1]
+Out[4]: 333
+
+In [5]: aTuple[2]
+Out[5]: 3.14159265354
+```   
+
+#### (2) 修改元组  
+```
+In [6]: aTuple[2]=3.14
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-6-d9bad7d59b2f> in <module>()
+----> 1 aTuple[2]=3.14
+
+TypeError: 'tuple' object does not support item assignment
+
+```   
+说明：**python中不允许修改元组的数据，包括不能删除**
+
+#### (3) 元组的内置函数count,index
+index和count 与字符串和列表中的用法相同   
+```
+In [14]: aTuple
+Out[14]: ('a', 333, 3.14159265354)
+
+In [15]: aTuple.index('a')
+Out[15]: 0
+
+In [17]: aTuple.index(333)
+Out[17]: 1
+
+In [18]: aTuple.index(3.14159265354)
+Out[18]: 2
+
+In [19]: aTuple
+Out[19]: ('a', 333, 3.14159265354)
+
+In [20]: aTuple.count(3.14159265354)
+Out[20]: 1
+
+In [21]: aTuple.count(333)
+Out[21]: 1
+
+In [22]: aTuple.count('a')
+Out[22]: 1
+
+```   
 
 ### 字典介绍
+字典是另一种可变容器模型，且可存储任意类型对象。
 
+字典的每个键值 key=>value 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号 {} 中 ,格式如下所示：  
+```
+d = {key1 : value, key2 : value2 }  
+```   
+键一般是唯一的，如果重复最后的一个键值对会替换前面的，值不需要唯一。   
+值可以取任何数据类型，但键必须是不可变的，如字符串，数字或元组。   
 
+#### (1) 变量dictA为字典类型：
+```
+dictA = {'name':‘班花’,'id':100, 'sex':'f', 'address' : '中国上海'}
+```   
+说明：   
+* 字典和列表一样，也能够存储多个数据
+* 列表中找到某个元素时，是根据下标进行的
+* 字典中找到某个元素时，是根据’名字‘（就是冒号：前面的那个值，例如上面代码中的’name‘、’id‘、’sex‘）
+* 字典的每个元素由2个部分组成，键：值。例如’name':'班长'，‘name'为键，’班长‘为值。
+
+   
+#### (2) 根据键访问值
+```
+dictA = {'name':’班花‘,'id':100, 'sex':'f', 'address' : '中国上海'}
+```   
+代码示例：
+```
+In [27]: dictA['name']
+Out[27]: '班花'
+```   
+   
 ### 字典的常见操作1
+#### (1)修改元素
+字典的每个元素中的数据是可以修改的，只要通过key找到，即可修改   
+代码演示：   
+```
+In [29]: dictA['name']='校长'
+
+In [30]: dictA
+Out[30]: {'address': '中国上海', 'id': 100, 'name': '校长', 'sex': 'f'}
+
+In [31]: dictA.get('name')  #查找元素
+Out[31]: '校长'
+```
+    
+#### (2)添加元素
+如果键值不存在，可以直接等号的方式来添加：   
+代码示例：   
+```
+In [32]: dictA
+Out[32]: {'address': '中国上海', 'id': 100, 'name': '校长', 'sex': 'f'}
+
+In [33]: dictA['money'] = 10111100
+
+In [34]: dictA
+Out[34]: {'address': '中国上海', 'id': 100, 'money': 10111100, 'name': '校长', 'sex': 'f'}
+```   
+   
+
+#### (3)删除元素 del,clear
+代码示例：   
+```
+In [35]: del dictA['money']
+
+In [36]: dictA
+Out[36]: {'address': '中国上海', 'id': 100, 'name': '校长', 'sex': 'f'} 
+
+In [36]: dictA
+Out[36]: {'address': '中国上海', 'id': 100, 'name': '校长', 'sex': 'f'}
+
+In [37]: 
+
+In [37]: dictA.clear()
+
+In [38]: dictA
+Out[38]: {}
+
+```   
+
 
 
 ### 字典的常见操作2
+#### (1)len()
+测量字典中，键值对的个数   
+```
+In [40]: dictA
+Out[40]: {'address': '中国上海', 'id': 100, 'name': '校长', 'sex': 'f'}
 
+In [41]: len(dictA)
+Out[41]: 4
+```   
+
+#### (2)keys
+返回一个包含字典的所有key的列表   
+```
+In [42]: dictA.keys()
+Out[42]: dict_keys(['address', 'id', 'name', 'sex'])
+```   
+
+#### (3)values
+返回一个包含字典所有value的列表   
+```
+In [43]: dictA.values()
+Out[43]: dict_values(['中国上海', 100, '校长', 'f'])
+```   
+
+#### (4)items
+返回一个包含所有（键，值）元祖的列表   
+```
+In [44]: dictA.items()
+Out[44]: dict_items([('address', '中国上海'), ('id', 100), ('name', '校长'), ('sex', 'f')])
+```   
+思考一下：   
+列表中是否可以包含字典？   
+   
+
+#### (5)has_key
+dict.has_key(key)如果key在字典中，返回True，否则返回False   
+```
+In [1]: dictA = {'address': '中国上海', 'id': 100, 'name': '校长', 'sex': 'f'}
+
+In [2]: dictA.has_key
+Out[2]: <function has_key>
+
+In [3]: dictA.has_key('addresss')
+Out[3]: False
+
+In [4]: dictA.has_key('address')
+Out[4]: True
+
+```   
+**注意：该函数只在python2中使用，python3中没有此函数**
 
 ### 字典的遍历
+使用for...in...来遍历所有值   
+#### 字符串遍历
+```
+stringA = 'hello world'
+for char in stringA:
+    print(char,end=' ')
+```   
+
+#### 列表遍历
+```
+In [2]: listA = [1,2,3,4,5]
+
+In [3]: for L in listA:
+   ...:     print(L,end=' ')
+   ...:
+1 2 3 4 5 
+```   
+#### 元祖遍历
+```
+In [10]: tupleA = ('A','B','D')
+
+In [11]: for item in tupleA:
+    ...:     print(item,end=' ')
+    ...:     
+A B D 
+```   
+   
+#### 字典的遍历
+#### <1> 遍历字典的key(键)
+```
+In [15]: dictA = {'name':'jack','age':18,'like':'beauty' }
+
+In [16]: for key in dictA.keys():
+    ...:     print(key)
+    ...:     
+name
+age
+like
+```   
+
+#### <2> 遍历字典的value(值)
+```
+In [15]: dictA = {'name':'jack','age':18,'like':'beauty' }
+
+In [17]: for value in dictA.values():
+    ...:     print(value)
+    ...:     
+jack
+18
+beauty
+```   
+#### <3> 遍历字典的项(元素)
+```
+In [18]: for item in dictA.items():
+    ...:     print(item)
+    ...:     
+('name', 'jack')
+('age', 18)
+('like', 'beauty')
+```   
+
+#### <2> 遍历字典的key-value(键值对)
+```
+#方法一：
+In [19]: for key,value in dictA.items():
+    ...:     print('key=%s,value=%s'%(key,value))
+    ...:     
+key=name,value=jack
+key=age,value=18
+key=like,value=beauty
+
+#方法二：
+In [21]: for item in dictA.items():
+    ...:     print("%s:%s"%(item[0],item[1]))
+    ...:     
+name:jack
+age:18
+like:beauty
+```   
+
+#### 小练习：
+如何实现带下标索引的遍历   
+```
+传统方式：
+In [28]: listA
+Out[28]: ['a', 'b', 'c', 'd']
+
+In [29]: i=0
+
+In [30]: for l in listA:
+    ...:     print("listA[%d]=%s"%(i,l))
+    ...:     i+=1
+    ...:     
+listA[0]=a
+listA[1]=b
+listA[2]=c
+listA[3]=d
+```   
+#### enumerate()
+```
+In [40]: for i,l in enumerate(listA):
+    ...:     print("listA[%d]:%s"%(i,l))
+    ...:     
+    ...:     
+listA[0]:a
+listA[1]:b
+listA[2]:c
+listA[3]:d
+
+```   
 
 
 ### 公共方法
+#### 运算符   
+    
+| 运算符  | python表达式  | 结果  | 描述 | 支持的数据类型  |
+| :---- | :---- | :----| :-----| :------|
+| + | [1,2]+[3,4] | [1,2,3,4] | 合并 | 字符串、列表、元组 |
+| * | 'Hi!'*4 | ['Hi!','Hi!','Hi!','Hi!',] | 复制 | 字符串、列表、元组 |
+| in | 3 in (1,2,3) | True | 元素是否存在 | 字符串、列表、元组、字典 |
+| not in | 4 not in (1,2,3) | True | 元素是否不存在 | 字符串、列表、元组、字典 |   
 
+➕号 和 星*号 
+```
+In [41]: 'hello' + 'world'
+Out[41]: 'helloworld'
+
+In [42]: 'hello ' + 'world'
+Out[42]: 'hello world'
+
+In [43]: 'hello world!'*3
+Out[43]: 'hello world!hello world!hello world!'
+
+```
+
+in   
+```
+In [44]: dictA
+Out[44]: {'age': 18, 'like': 'beauty', 'name': 'jack'}
+
+In [45]: 'age' in dictA
+Out[45]: True
+
+In [46]: 'beauty' in dictA
+Out[46]: False
+```   
+注意：in在对字典的操作时，判断的是字典的键   
+
+### Python内置函数
+python 包含以下内置函数,python3没有这些函数   
+| 序号 | 方法 | 描述 |
+| :----| :----| :---- |
+|1|cmp(item1,item2)| 比较两个值 |
+|2|len(item)| 计算容器中元素大小 |
+|3|max(item)| 返回容器中元素最大值 |
+|4|min(item) | 返回容器中元素最小值 |
+|5|del(item) | 删除变量 |
+
+#### cmp 
+该内置函数只存在python2中   
+```
+>>> cmp('a','b')
+-1
+>>> cmp('b','a')
+1
+>>> cmp('b','b')
+0
+```   
+
+#### max 和min
+```
+>>> max('22','11')
+'22'
+>>> min('22','11')
+'11'
+
+```   
+
+#### len
+```
+>>> a = ("aa","11","33")
+>>> len(a)
+3
+```   
+#### del
+```
+>>> a
+('11', '22')
+>>> del(a)
+>>> a
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'a' is not defined
+```   
 
 ### 引用
 
