@@ -1208,6 +1208,80 @@ NameError: name 'a' is not defined
 
 
 ### 作业
+#### 1.学生管理器
+
+
+
+#### 2.
+* 统计字符串，各个字符的个数
+* 比如：“hello world”字符串统计的结果为：h:1 e:1 l:3 o:2 d:1 r:1 w:1   
+     
+```
+#coding=utf-8
+
+#1.获得输入的字符串
+str = input("请输入字符串:")
+
+#2.判断字符串的字符个数
+j = len(str)
+i=0
+#2.1 定义一个空的字典用来存放字符以及出现的次数
+dictA = {}
+#2.2 while循环将计算出来的key:value保存到字典
+while i<j:
+    c = str.count(str[i])
+    dictA[str[i]] = c
+    i += 1
+for key,value in dictA.items():
+    print("%s:%d"%(key,value),end=' ')
+print("")    
+```   
+代码演示：   
+```
+root@k8s-node1:/home/k8s/Documents/day5-string-list-dict# python3 2-assignment.py 
+请输入字符串:ssshhhhhhhhajjjjk8654zxc
+s:3 h:8 a:1 j:4 k:1 8:1 6:1 5:1 4:1 z:1 x:1 c:1 
+```   
+
+#### 3.编写程序，完成以下要求：  
+* 完成一个路径的组装
+* 先提示用户多次输入路径，最后显示一个完成的路径，比如/home/python/ftp/share   
+    
+```
+root@k8s-node1:/home/k8s/Documents/day5-string-list-dict# cat 3-assignment.py 
+#coding=utf-8
+
+#1.定义一个列表来存放路径
+path = []
+#2. 获取输入文件夹
+while True:
+    while True:
+        j = input("请输入文件夹名称,按0终止:")
+        # 2.1 定义终止条件
+        if j == "0":
+            break
+        # 2.2 列表赋值
+        path.append(j)
+    # 3. 循环打印列表数值
+    for folder in path:
+        print("/%s"%folder,end='')
+    print("")
+    break
+```   
+示例结果：   
+![assignment](images/day5-8-assign.jpg)   
+
+
+#### 4.编写程序，完成"名片管理器"项目   
+* 需要完成的基本功能：
+  1. 添加名片
+  2. 删除名片
+  3. 修改名片
+  4. 查询名片
+  5. 退出系统
+* 程序运行后，除非选择退出系统，否则重复执行功能   
+    
+
 
 
 ***
