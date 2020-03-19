@@ -63,9 +63,54 @@ def sum2num(num1,num2):
 ```   
 以上函数num1,num2就是形式参数，函数sum2num叫做参数函数。   
 调用的函数实际传递的参数叫实参。譬如sum2num(1,2),那1和2就是实际参数   
+定义的函数如果有2个参数，那实际使用的时候必须传递2个实参，如果少一个参数，则会报错。   
+并且形参和实参的顺序是一一对应的。  
+定义函数前面不能加空格。   
 
+练一练：写一个函数，并且从外部获取数据并求和   
+```
+root@k8s-node1:/home/k8s/Documents/day6-函数# cat 03-canshu.py 
+def sum2num(num1,num2):
+    "两个数求和"
+    print(num1+num2)
+
+sum2num(int(input("1:")),int(input("2:")))
+root@k8s-node1:/home/k8s/Documents/day6-函数# python3 03-canshu.py 
+1:22
+2:344
+366
+```   
 
 ### 6.5. 函数返回值(1)
+#### <1> ”返回值“介绍
+场景介绍：   
+> 定义了一个函数，完成了获取室内的温度，想一想是不是应该把这个结果给调用者，只有调用者获取了这个返回值，才能够根据当前的温度做适当的调整  
+
+*所谓”返回值“，就是程序中函数完成一件事情后，最后给调用者的结果   
+
+#### <2>带有返回值的函数
+想要在函数中把结果返回给调用者，需要在函数中使用return   
+如下示例：   
+```
+root@k8s-node1:/home/k8s/Documents/day6-函数# cat 02.py 
+def sum2num(num1,num2):
+    "两个数求和"
+    return num1+num2
+
+result = sum2num(int(input("1:")),int(input("2:")))
+print(result)
+root@k8s-node1:/home/k8s/Documents/day6-函数# python3 02.py 
+1:101
+2:102
+203
+```   
+
+
+return有两个功能：   
+* 把一个结果返回给调用者
+* 结束一个函数
+* 函数中可以写多个return，但是只有第一个return会返回值。原因是第一个return被执行后，这个函数就结束了，所有接下来的return都不会被执行了。     
+
 
 
 
