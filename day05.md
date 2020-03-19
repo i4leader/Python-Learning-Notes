@@ -1,4 +1,5 @@
 ## Day5-字符串、列表、元祖、字典
+*** 
 ### 字符串介绍
 #### python 中字符串的格式
 如下定义的变量a，存储的是数字类型的值   
@@ -1281,8 +1282,90 @@ while True:
   5. 退出系统
 * 程序运行后，除非选择退出系统，否则重复执行功能   
     
+```
+#coding=utf-8
+#1. 定义名片字典,一个名片就是一个字典,定义列表存放名片
+nameCardList = []
 
+#2. 定义个循环并在此循环内完成增删改查的操作
+while True:
+    # 打印提示
+    print("="*8,end='')
+    print("名片管理器v6.8",end='')
+    print("="*8)
+    print("增加名片请输入1:")
+    print("删除名片请输入2:")
+    print("修改名片请输入3:")
+    print("查询名片请输入4:")
+    print("退出系统请输入5:")
+    print("显示所有名片请输入6:")
+    print("="*30)
+    # 获取要操作的选项
+    i = int(input("请输入您要操作的选项:"))
+    # 根据选项,来做相应的事情
+    
+    if i == 1:
+    # 新增名片信息
+        nameCardDict = {}
+        insertName = input("请输入姓名:")
+        insertEmail = input("请输入邮箱地址:")
+        insertPhoneNum = input("请输入电话号码:")
+        insertCorp = input("请输入公司名称:")
+        nameCardDict['name'] = insertName
+        nameCardDict['email'] = insertEmail
+        nameCardDict['phone'] = insertPhoneNum
+        nameCardDict['corp'] = insertCorp
+        # print(nameCardDict)
+        nameCardList.append(nameCardDict)
+        # print(nameCardList)
+    
+    elif i == 2:
+        nameId = int(input("请输入要删除的名片序号:"))
+        if nameId > len(nameCardList):
+            print("该序号所对应的名片不存在.")
+        else:
+            nameCardList.remove(nameCardList[nameId-1])
+            print("名片已删除")
+    
+    elif i == 3:
+        nameId = int(input("请输入要修改的名片序号:"))
+        insertName = input("请输入姓名:")
+        insertEmail = input("请输入邮箱地址:")
+        insertPhoneNum = input("请输入电话号码:")
+        insertCorp = input("请输入公司名称:")
+        nameCardList[nameId - 1]['name'] = insertName
+        nameCardList[nameId - 1]['email'] = insertEmail
+        nameCardList[nameId - 1]['phone'] = insertPhoneNum
+        nameCardList[nameId - 1]['corp'] = insertCorp
+        
+    elif i == 4:
+        nameId = int(input("请输入要查询的名片序号:"))
+        if nameId > len(nameCardList):
+            print("该序号所对应的名片不存在.")
+        else:
+            print("="*40)
+            print("          学生的信息如下:")
+            print("="*40)
+            print("姓名        电话号码        邮箱地址        公司   ")
+            print("%s      %s            %s            %s"%(nameCardList[nameId - 1]['name'],nameCardList[nameId - 1]['phone'],nameCardList[nameId - 1]['email'],nameCardList[nameId - 1]['corp']))
+    elif i == 5:
+        break
 
+    elif i == 6:
+        print("="*40)
+        print("          学生的信息如下:")
+        print("="*40)
+        print("序号  姓名        电话号码        邮箱地址        公司   ")
+        i = 1
+        for nameCard in nameCardList:
+            print("%d     %s        %s         %s           %s"%(i,nameCard['name'],nameCard['phone'],nameCard['email'],nameCard['corp']))
+            i += 1
+
+    else:
+        print("您输入选项不对,请重新输入.")
+        continue
+
+```   
 
 ***
 有兴趣一起学习的可以加我微信，大家一起交流。加我请备注“13天Python学习”
