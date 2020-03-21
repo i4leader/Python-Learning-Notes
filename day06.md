@@ -742,7 +742,7 @@ result = test(11,22,lambda x,y:x-y)
 print(result)
 ```   
 运行结果：   
-![lambda](images/day6-8.jpg)
+![lambda](images/day6-9.jpg)
 
 #### <2> 排序
 ```
