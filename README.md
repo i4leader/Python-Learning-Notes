@@ -1,4 +1,8 @@
 # Python学习笔记
+***
+本文档是我参考youtube上传智播客的python基本班视频自学过程中的学习笔记,一方面记录学习进程,另一方面也希望能交一些一起学习的朋友.
+大家共同进步.   
+  
 ## 目录
 ### [介绍](README.md)
 ### Linux 操作相关
@@ -7,7 +11,7 @@
 * [Day3-系统命令,vim编辑器](day03-morning.md)
 ### Python 基础语法
 * [Day3-认识python,输入输出,运算符,数据类型,if](day03-afternoon.md)
-* [Day4-语法,if,while循环](day04.md)
+* [Day4-语法,while循环](day04.md)
 * [Day5-字符串、列表、元祖、字典](day05.md)
 * [Day6-函数](day06.md)
 * [Day7-文件](day07.md)
