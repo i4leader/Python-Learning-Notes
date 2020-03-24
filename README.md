@@ -2,17 +2,17 @@
 ## 目录
 ### [介绍](README.md)
 ### Linux 操作相关
-* [Day1](day01.md)
-* [Day2](day02.md)
-* [Day3](day03-morning.md)
+* [Day1-linux基础](day01.md)
+* [Day2-linux基础命令,copy,rm,mv,gzip](day02.md)
+* [Day3-系统命令,vim编辑器](day03-morning.md)
 ### Python 基础语法
-* [Day3](day03-afternoon.md)
-* [Day4](day04.md)
-* [Day5](day05.md)
-* [Day6](day06.md)
-* [Day7](day07.md)
-* [Day8](day08.md)
-* [Day9](day09.md)
+* [Day3-认识python,输入输出,运算符,数据类型,if](day03-afternoon.md)
+* [Day4-语法,if,while循环](day04.md)
+* [Day5-字符串、列表、元祖、字典](day05.md)
+* [Day6-函数](day06.md)
+* [Day7-文件](day07.md)
+* [Day8-面向对象](day08.md)
+* [Day9-异常处理](day09.md)
 * [Day10](day10.md)
 ### Python 强化练习
 * [Day11](day11.md)
