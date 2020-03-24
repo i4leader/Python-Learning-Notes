@@ -273,7 +273,7 @@ Out[17]: '/home/k8s/Documents/day7-file'
    
 ![modifyfilename2](images/day7-6.jpg)   
    
-示例代码：   
+示例代码1(我自己写的)：   
 ```
 #coding=utf-8
 import os
@@ -430,6 +430,7 @@ def readStuDatabase():
         else:
             i+=1
             continue
+    f.close()
     # 打印加载的数据库信息
     printStuInfo()
     
@@ -491,6 +492,178 @@ def main():
 main()
 ```   
    
+
+示例代码2：老师指导后得知有个eval()函数可以直接换格式，所以下面用这个函数优化了一下代码，省了好多行；不过我还是举得我的代码也可以，因为我的代码保存的文件数据更小   
+```
+#coding=utf-8
+import os
+# 打印功能提示
+def printMenu():
+    print("="*30)
+    print("      学生管理系统V1.0")
+    print("0.加载数据库信息")
+    print("1.添加学生信息")
+    print("2.删除学生信息")
+    print("3.修改学生信息")
+    print("4.查询学生信息")
+    print("5.显示所有学生信息")
+    print("6.保存学生信息")
+    print("9.退出系统")
+    print("="*30)
+
+# 获取一个学生的信息
+# 全局变量
+# 定义列表
+stuInfo = []
+
+newName = ""
+newSex = ""
+newPhone = ""
+stuDatabase = []
+
+def getInfo():
+
+    global newName
+    global newSex
+    global newPhone
+
+    #3.1 提示并获取学生的姓名
+    newName = input("请输入新学生的名字:")
+    newSex = input("请输入新学生的性别:(男/女)")
+    newPhone = input("请输入新学生的电话号码:")
+
+#用来修改一个学生的信息
+def modifyStuInfo():
+    global stuInfo
+    stuId = int(input("请输入要修改的学生的序号:"))
+    # 这里就使用了函数嵌套,调用了getInfo()函数来完成学生信息的修改
+    getInfo()
+    
+    stuInfo[stuId-1]['name'] = newName
+    stuInfo[stuId-1]['sex'] = newSex
+    stuInfo[stuId-1]['phone'] = newPhone
+
+
+
+def addStuInfo():
+    global newName
+    global newSex
+    global newPhone
+    global stuInfo
+    #3.1 提示并获取学生的姓名
+    newName = input("请输入新学生的姓名:")
+    #3.2 提示并获取学生的性别
+    newSex = input("请输入新学生的性别:(男/女)")
+    #3.3 提示并获取学生的手机号码
+    newPhone = input("请输入新学生的电话号码:")
+    
+    newInfo = {}
+    newInfo['name'] = newName
+    newInfo['sex'] = newSex
+    newInfo['phone'] = newPhone
+    
+    stuInfo.append(newInfo)
+
+# 打印所有学生信息
+def printStuInfo():
+    printStuinfoHeader()
+    i = 1
+    for tempInfo in stuInfo:
+        print("%d     %s     %s     %s"%(i,tempInfo['name'],tempInfo["sex"],tempInfo["phone"]))
+        i += 1
+
+# 打印学生信息列表头
+def printStuinfoHeader():
+    print("="*30)
+    print("学生的信息如下:")
+    print("="*30)
+    print('序号   姓名   性别   手机号码')
+
+# 保存学生信息到文件
+def saveStuInfo():
+    #打开数据库文件
+    f = open("学生信息数据库.txt",'w')
+    
+    # 将学生信息保存
+    content = str(stuInfo)
+    f.write(content)
+    f.close()
+    
+    #打印文件保存路径
+    currentWorkingDirectory = os.getcwd()
+    print("学生信息数据库已保存到%s目录下"%currentWorkingDirectory)
+
+# 获取学生信息数据库文件中的数据
+def readStuDatabase():
+    
+    global stuInfo
+    # 只读打开文件
+    f = open("学生信息数据库.txt")
+    # 将数据转换成字符串
+    stuStr = f.read()
+    stuInfo = eval(stuStr)
+    f.close()
+    # 打印加载的数据库信息
+    printStuInfo()
+    
+def main():
+        
+    while True:
+        #1. 打印功能提示
+        printMenu()
+
+        #2. 获取功能选项
+        key = input("请输入功能序号:")
+
+
+        #3.根据用户的选择,进行相应的操作
+        if key == "1":
+            #添加学生信息
+            addStuInfo()
+
+        elif key == "0":
+            #读取数据
+            readStuDatabase()
+
+        elif key == "2":
+            global stuInfo
+            #2.0 删除学生信息
+            #2.1 提示并获取需要修改的学生序号
+            stuId = int(input("请输入要修改的学生序号:"))
+            del stuInfo[stuId - 1]         
+
+        elif key == "3":
+            #修改学生信息
+            #3.1 提示并获取需要修改的学生序号
+            modifyStuInfo()
+
+        elif key == "4":
+            #查询学生信息
+            stuId = int(input("请输入要修改的学生序号:"))
+            printStuinfoHeader()
+            print("%d     %s     %s     %s"%(stuId,stuInfo[stuId-1]['name'],stuInfo[stuId-1]["sex"],stuInfo[stuId-1]["phone"]))
+
+        elif key == "5":
+            #显示所有学生信息
+            #print(stuInfo)
+            printStuInfo()
+
+        elif key == "6":
+            #保存数据到文件
+            saveStuInfo()
+
+        elif key == "9":
+            #退出系统
+            break
+        
+        else:
+            print("输入错误,请重新输入.")
+            continue
+
+# 主函数
+main()
+
+```   
 
 ### 7.10
 
