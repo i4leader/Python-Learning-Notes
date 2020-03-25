@@ -227,12 +227,145 @@ bosi.sayHello()
 * Python伪代码实现Java或C#的多态
    
 ```
+#coding=utf-8
+  
+class Animal(object):
+    def bark(self):
+        print("啊啊啊啊啊")
+
+class Cat(Animal):
+
+    def bark(self):
+        print("喵喵喵...")
+
+class Dog(Animal):
+    def bark(self):
+        print("汪汪汪...")
+
+# 所谓的"多态"是指,调用的方法是同一个,但是执行的代码或者说现象不一样
+class Robot(object):
+    def bark(self):
+        print("嗡嗡嗡...")
+
+def animalBark(temp):
+    temp.bark()
+
+maomi = Cat()
+wangcai = Dog()
+animalBark(maomi)
+animalBark(wangcai)
+
+dingdang = Robot()
+animalBark(dingdang)
+```   
+运行结果:   
+```
+root@k8s-node1:/home/k8s/Documents/day9-oopandexception# python3 7-多态.py 
+喵喵喵...
+汪汪汪...
+嗡嗡嗡...
+```   
+   
+### 类属性,实例属性
+在了解了类的基本概念之后,下面看一下python中的这几个概念的区别   
+先来谈一下*类属性*和*实例属性*   
+在前面的例子中我们接触到的就是实例属性(对象属性),顾名思义,类属性就是*类对象*所拥有的属性,它被所有*类对象*的*实例对象*所共有,在内存中只存在一个副本,这个和C++中类的静态成员变量有点类似.   
+对于公有的类属性,在类外可以通过*类对象*和*实例对象*访问   
+```
+# 第一种用来记录马的匹数
+g_horse_num = 0
+
+class Animal(object):
+    def __init__(self, name='动物', color='白色'):
+        self.name = name
+        self.color = color
+
+class Horse(Animal):
+
+    horseNum = 0  # 如果一个变量在方法外面进行定义,这样的数量叫类属性,它可以被调用 
+
+    def __init__(self, name, color = ''):
+
+        super().__init__(name)
+
+        #self.horseNum = 1
+        #self.horseNum += 1
+
+
+bailongma = Horse("百龙马")
+#g_horse_num += 1
+#print(g_horse_num)
+Horse.horseNum += 1
+print(bailongma.name)
+print(bailongma.color)
+print(bailongma.horseNum)
+
+
+chituma = Horse("赤兔马")
+#g_horse_num += 1
+#print(g_horse_num)
+Horse.horseNum += 1
+print(chituma.name)
+print(chituma.color)
+print(chituma.horseNum)
+```   
+
+##### 总结
+* 赤兔马和白龙马叫实例对象
+* class Horse(xxx)叫做类对象
+
+
+
+#### 类属性
+```
+class People(object):
+    name = 'Tom' #公有的类属性
+    __age = 12  #私有的类属性
+
+p = People()
+
+print(p.name)           #正确
+print(People.name)      #正确
+print(p.__age)          #错误,不能在类外通过实例对象访问私有的类属性
+print(People.age)       #错误,不能在类外通过类对象访问私有的类属性
 
 ```   
    
+#### 实例属性(对象属性)
+```
+class People(object):
+    address = "山东"    #类属性
+    # 实例方法
+    def __init__(self):
+        self.name = 'xiaowang'  #实例属性
+        self.age = 20       #实例属性
+        
+    # 类方法
+    @classmethod
+    def setNewAddress(cls):
+        cls.address = '包头'
 
-### 类属性,示例属性
+#类对象,可以直接调用类属性,也可以调用类方法
+#但是类对象,不允许调用实例属性,并且也不允许调用实例方法
 
+#如果是一个实例对象
+#它可以获取实例属性和类属性的值,但是只能修改实例属性,不能修改类属性
+#它还可以调用实例方法和类方法,方法前面加@classmethod就是类方法
+p = People()
+People.setNewAddress()
+p.age = 12  #实例属性
+print(p.address)    #正确
+print(p.name)    #正确
+print(p.age)    #正确
+
+print(People.address)   #正确
+print(People.name)   #错误
+print(People.age)   #错误
+```   
+类属性不能通过实例属性修改,只能通过类来修改.不过这种方式不建议.建议通过类方法来修改.  
+实例属性跟着实例对象走,类属性是大家共有的,类名.类方法()可以直接调用.实例对象也可以调用类方法.   
+   
+![实例属性和类属性](images/day9-1.jpg)   
 
 
 ### 静态方法和类方法
