@@ -373,16 +373,138 @@ print(People.age)   #错误
 
 
 ### 异常介绍
+#### <1>异常简介
+看如下示例：   
+```
+print("------test---------")
+open("123.txt",'r')
+print("------test---------")
 
+
+```  
+运行结果:   
+```
+root@python:~/day10# python3 1.py
+------test---------
+Traceback (most recent call last):
+  File "1.py", line 2, in <module>
+    open("123.txt",'r')
+FileNotFoundError: [Errno 2] No such file or directory: '123.txt'
+
+```   
+说明:   
+>打开一个不存在的文件123.txt文件时，当123.txt文件不存在时。就会抛给我们一个IOerror类型的错误。
+No such file or directory: 123.txt (没有123.txt这样的文件或目录)
+   
+异常：  
+> 当Python检测到一个错误时，解释器就无法继续执行了。反而出现了一些错误的提示。这就是所谓的“异常”。   
+   
 
 
 ### 捕获异常
+#### 案例剖析
+#### <1>捕获异常 try...except...
+看如下示例:   
+```
+try:
+    print("----test 1----")
+    open("123.txt",'r')
+    print("----test 2----")
+except FileNotFoundError:
+    pass
 
+```   
+运行结果:    
+![try](images\day9-2.png)   
+   
+#### <2>捕获多个异常
+```
+except (FileNotFoundError,NameError):
+```   
+
+#### <3>抓取错误信息
+```
+try:
+    print(num)
+except (IOError,NameError) as errmsg:
+    print("[2020-04-01 20:00:00]")
+    print(errmsg)
+
+```   
+输出示例:   
+![try](images\day9-3.png)  
+
+#### <4>try...Finally
+```
+import time
+try:
+    f = file('test.txt')
+    while True:
+        line = f.readline()
+        if len(line) == 0:
+            break
+        time.sleep(2)
+        print(line)
+
+
+finally:
+    f.close()
+    print('Close the file!')
+```   
+特性说明:  
+* 不管你程序有没有出错,最终要执行的命令
+
+
+
+说明:   
+* 此程序看不到任何错误,因为用except 接受了产生FileNotFoundError错误,并添加了处理错误的方法
+* pass 表示实现了相应的实现,但什么也不做;如果把pass改为print语句,那么就会输出其他信息
+
+示例代码2:   
+```
+try:
+    num = 100
+    print(num)
+except (NameError) as errmsg:
+    print('产生了错误:%s'%errmsg)
+else:
+    print('没有捕获到异常')
+finally:
+    print('一定会执行')
+
+```   
+输出:   
+![try](images\day9-4.png)   
 
 
 ### 抛出异常
+你可以用raise语句来引发一个异常.异常/错误对象必须有一个名字,且它们应是error或Exception类的子类.   
+下面是一个引发异常的例子:   
+```
+class ShortInputException(Exception):
+    ''' 你定义的异常类.  '''
+    def __init__(self,length,atleast):
+        Exception.__init__(self)
+        self.length = length
+        self.atleast = atleast
 
+try:
+    s = input('请输入 -->')
 
+    if len(s) < 3:
+        # raise引发了一个你定义的异常
+        raise ShortInputException(len(s),3)
+
+except EOFError:
+    print('你输入了一个结束标记EOF')
+except ShortInputException as x: #x这个变量被绑定到了错误的实例
+    print('ShortInputException: 输入的长度是 %d,长度至少应该是 %d'%(x.length, x.atleast))
+else:
+    print('没有异常发生.')
+
+```   
+输出示例:   
+![try](images\day9-5.png)   
 
 ***
 有兴趣一起学习的可以加我微信，大家一起交流。加我请备注“13天Python学习”
